@@ -15,17 +15,24 @@
     /* Header y navegación fija */
     header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255,255,255,0.9); box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 1000; }
     .container { width: 90%; max-width: 1200px; margin: 0 auto; }
-    nav { display: flex; justify-content: space-between; align-items: center; height: 60px; }
+    nav { display: flex; justify-content: space-between; align-items: center; height: 60px; position: relative; }
     .logo { font-size: 1.5rem; font-weight: 700; color: #007BFF; }
-    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links li { text-align: center; }
+
+    /* Botón hamburguesa */
+    .hamburger { display: none; flex-direction: column; justify-content: center; cursor: pointer; }
+    .hamburger div { width: 25px; height: 3px; background: #007BFF; margin: 4px 0; transition: 0.3s; }
 
     /* Sección hero */
-    .hero { display: flex; align-items: center; justify-content: center;
-      background: url('hero.png') no-repeat center center/cover;
+    .hero {
+      display: flex; align-items: center; justify-content: center;
+      background: url('img/hero.png') no-repeat center center/cover;
       height: 100vh; color: #fff; text-align: center; padding: 0 1rem;
     }
     .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-    .btn-primary { display: inline-block; padding: 0.75rem 1.5rem;
+    .btn-primary {
+      display: inline-block; padding: 0.75rem 1.5rem;
       background: #007BFF; color: #fff; border-radius: 5px;
       transition: background 0.3s ease;
     }
@@ -59,91 +66,120 @@
 
     /* Ajuste para el header fijo */
     main { padding-top: 60px; }
+
+    /* — Responsive — */
+    @media (max-width: 768px) {
+      /* Mostrar hamburguesa y ocultar enlaces */
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        gap: 0;
+      }
+      .nav-links li { padding: 1rem; border-bottom: 1px solid #eee; }
+      .nav-links.show { display: flex; }
+
+      /* Ajustes de hero */
+      .hero h1 { font-size: 2rem; }
+      .hero p  { font-size: 0.9rem; }
+
+      /* Full-width sections */
+      .features { grid-template-columns: 1fr; }
+      .gallery  { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-<header>
-  <div class="container">
-    <nav>
-      <div class="logo">Smart Cube</div>
-      <ul class="nav-links">
-        <li><a href="#about">Nosotros</a></li>
-        <li><a href="#features">Características</a></li>
-        <li><a href="#gallery">Galería</a></li>
-        <li><a href="#contact">Contacto</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <section class="hero">
-    <div>
-      <h1>Soluciones Móviles y Prefabricadas</h1>
-      <p>Unidades Smart Cube totalmente configurables para tus proyectos</p>
-      <a href="#contact" class="btn-primary">Solicita tu cotización</a>
-    </div>
-  </section>
-
-  <section id="about">
+  <header>
     <div class="container">
-      <h2 class="section-title">Quiénes Somos</h2>
-      <p>En Orviv Solutions ofrecemos unidades móviles Smart Cube y módulos prefabricados con la mejor calidad en acero, paneles y acabados, diseñados para maximizar espacios y brindar soluciones rápidas y eficientes.</p>
+      <nav>
+        <div class="logo">Smart Cube</div>
+        <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+          <div></div><div></div><div></div>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#features">Características</a></li>
+          <li><a href="#gallery">Galería</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <section id="features">
-    <div class="container">
-      <h2 class="section-title">Características</h2>
-      <div class="features">
-        <div class="feature">
-          <h3>Estructura de Acero</h3>
-          <p>Construidas con PTR y paneles de alta resistencia.</p>
-        </div>
-        <div class="feature">
-          <h3>Opciones de Acabado</h3>
-          <p>Elige entre Cempanel, tablaroca, lámina Pintro o MDF laminado.</p>
-        </div>
-        <div class="feature">
-          <h3>Transporte Fácil</h3>
-          <p>Unidades totalmente recuperables y fáciles de transportar.</p>
-        </div>
-        <div class="feature">
-          <h3>Instalaciones Completas</h3>
-          <p>Climatización, iluminación LED y acometida eléctrica incluídas.</p>
+  <main>
+    <section class="hero">
+      <div>
+        <h1>Soluciones Móviles y Prefabricadas</h1>
+        <p>Unidades Smart Cube totalmente configurables para tus proyectos</p>
+        <a href="#contact" class="btn-primary">Solicita tu cotización</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">Quiénes Somos</h2>
+        <p>En Orviv Solutions ofrecemos unidades móviles Smart Cube y módulos prefabricados con la mejor calidad en acero, paneles y acabados, diseñados para maximizar espacios y brindar soluciones rápidas y eficientes.</p>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container">
+        <h2 class="section-title">Características</h2>
+        <div class="features">
+          <div class="feature">
+            <h3>Estructura de Acero</h3>
+            <p>Construidas con PTR y paneles de alta resistencia.</p>
+          </div>
+          <div class="feature">
+            <h3>Opciones de Acabado</h3>
+            <p>Elige entre Cempanel, tablaroca, lámina Pintro o MDF laminado.</p>
+          </div>
+          <div class="feature">
+            <h3>Transporte Fácil</h3>
+            <p>Unidades totalmente recuperables y fáciles de transportar.</p>
+          </div>
+          <div class="feature">
+            <h3>Instalaciones Completas</h3>
+            <p>Climatización, iluminación LED y acometida eléctrica incluídas.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="gallery">
-    <div class="container">
-      <h2 class="section-title">Galería</h2>
-      <div class="gallery">
-        <img src="img1.png" alt="Interior Smart Cube">
-        <img src="img2.png" alt="Exterior Smart Cube">
-        <img src="img3.png" alt="Prefabricado 2.8x2.5m">
-        <img src="img4.png" alt="Instalaciones y acabados">
+    <section id="gallery">
+      <div class="container">
+        <h2 class="section-title">Galería</h2>
+        <div class="gallery">
+          <img src="img/img1.png" alt="Interior Smart Cube">
+          <img src="img/img2.png" alt="Exterior Smart Cube">
+          <img src="img/img3.png" alt="Prefabricado 2.8x2.5m">
+          <img src="img/img4.png" alt="Instalaciones y acabados">
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Contacto</h2>
-      <form class="contact-form">
-        <input type="text" placeholder="Nombre" required>
-        <input type="email" placeholder="Correo Electrónico" required>
-        <input type="tel" placeholder="Teléfono" required>
-        <textarea rows="5" placeholder="Mensaje"></textarea>
-        <button type="submit">Enviar Mensaje</button>
-      </form>
-    </div>
-  </section>
-</main>
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contacto</h2>
+        <form class="contact-form">
+          <input type="text" placeholder="Nombre" required>
+          <input type="email" placeholder="Correo Electrónico" required>
+          <input type="tel" placeholder="Teléfono" required>
+          <textarea rows="5" placeholder="Mensaje"></textarea>
+          <button type="submit">Enviar Mensaje</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
-<footer>
-  <p>© 2025 Orviv Solutions. Todos los derechos reservados.</p>
-</footer>
+  <footer>
+    <p>© 2025 Orviv Solutions. Todos los derechos reservados.</p>
+  </footer>
 </body>
 </html>
