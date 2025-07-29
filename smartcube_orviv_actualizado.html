@@ -1,223 +1,210 @@
 <!DOCTYPE html>
-<html lang="es" x-data="{ dark: false, navOpen: false }" :class="{ 'dark': dark }">
+
+<html :class="{ 'dark': dark }" lang="es" x-data="{ dark: false, navOpen: false }">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Smart Cube | Orviv Solutions</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Alpine.js para interactividad -->
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <!-- AOS para animaciones al hacer scroll -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <!-- SimpleLightbox para galería -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.1.3/simple-lightbox.min.css" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.1.3/simple-lightbox.min.js"></script>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Smart Cube | Orviv Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS via CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Alpine.js para interactividad -->
+<script defer="" src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<!-- AOS para animaciones al hacer scroll -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- SimpleLightbox para galería -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.1.3/simple-lightbox.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.1.3/simple-lightbox.min.js"></script>
+<style>
     /* Para que Tailwind cargue en modo dark */
     html.dark { background: #1a202c; color: #f7fafc; }
   </style>
 </head>
 <body class="font-montserrat bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100">
-  <!-- HEADER -->
-  <header class="fixed w-full bg-white dark:bg-gray-800 shadow z-50">
-    <div class="container mx-auto flex items-center justify-between h-16 px-4">
-      <a href="#" class="text-2xl font-bold text-red-700 dark:text-blue-400">Smart Cube</a>
-      <!-- Botón Dark Mode -->
-      <button @click="dark = !dark" 
-              class="hidden md:inline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700">
-        <template x-if="!dark">🌙</template>
-        <template x-if="dark">☀️</template>
-      </button>
-      <!-- Menú escritorio -->
-      <nav class="hidden md:flex space-x-6">
-        <a href="#about"      class="hover:text-red-700 dark:hover:text-blue-400">Nosotros</a>
-        <a href="#features"   class="hover:text-red-700 dark:hover:text-blue-400">Características</a>
-        <a href="#gallery"    class="hover:text-red-700 dark:hover:text-blue-400">Galería</a>
-        <a href="#contact"    class="hover:text-red-700 dark:hover:text-blue-400">Contacto</a>
-      </nav>
-      <!-- Hamburguesa móvil -->
-      <button @click="navOpen = !navOpen" 
-              class="md:hidden flex flex-col gap-1 p-2">
-        <span class="block w-6 h-0.5 bg-gray-800 dark:bg-gray-100"></span>
-        <span class="block w-6 h-0.5 bg-gray-800 dark:bg-gray-100"></span>
-        <span class="block w-6 h-0.5 bg-gray-800 dark:bg-gray-100"></span>
-      </button>
-    </div>
-    <!-- Menú móvil -->
-    <div x-show="navOpen" class="md:hidden bg-white dark:bg-gray-800">
-      <nav class="flex flex-col space-y-2 p-4">
-        <a href="#about"    class="py-1 hover:text-red-700 dark:hover:text-blue-400">Nosotros</a>
-        <a href="#features" class="py-1 hover:text-red-700 dark:hover:text-blue-400">Características</a>
-        <a href="#gallery"  class="py-1 hover:text-red-700 dark:hover:text-blue-400">Galería</a>
-        <a href="#contact"  class="py-1 hover:text-red-700 dark:hover:text-blue-400">Contacto</a>
-        <button @click="dark = !dark" 
-                class="py-1 text-left hover:text-red-700 dark:hover:text-blue-400">
-          <template x-if="!dark">Activar Dark Mode</template>
-          <template x-if="dark">Desactivar Dark Mode</template>
-        </button>
-      </nav>
-    </div>
-  </header>
-
-  <main class="pt-16">
-    <!-- HERO -->
-    <section class="relative h-screen bg-cover bg-center" style="background-image:url('img/hero.png')">
-      <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black/30"></div>
-      <div class="relative z-10 container mx-auto h-full flex flex-col items-center justify-center text-center px-4">
-        <h1 class="text-4xl md:text-6xl font-bold text-white mb-4" data-aos="fade-down">
+<!-- HEADER -->
+<header class="fixed w-full bg-white dark:bg-gray-800 shadow z-50">
+<div class="container mx-auto flex items-center justify-between h-16 px-4">
+<a class="text-2xl font-bold text-red-700 dark:text-blue-400" href="#">Smart Cube</a>
+<!-- Botón Dark Mode -->
+<button @click="dark = !dark" class="hidden md:inline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700">
+<template x-if="!dark">🌙</template>
+<template x-if="dark">☀️</template>
+</button>
+<!-- Menú escritorio -->
+<nav class="hidden md:flex space-x-6">
+<a class="hover:text-red-700 dark:hover:text-blue-400" href="#about">Nosotros</a>
+<a class="hover:text-red-700 dark:hover:text-blue-400" href="#features">Características</a>
+<a class="hover:text-red-700 dark:hover:text-blue-400" href="#gallery">Galería</a>
+<a class="hover:text-red-700 dark:hover:text-blue-400" href="#contact">Contacto</a>
+</nav>
+<!-- Hamburguesa móvil -->
+<button @click="navOpen = !navOpen" class="md:hidden flex flex-col gap-1 p-2">
+<span class="block w-6 h-0.5 bg-gray-800 dark:bg-gray-100"></span>
+<span class="block w-6 h-0.5 bg-gray-800 dark:bg-gray-100"></span>
+<span class="block w-6 h-0.5 bg-gray-800 dark:bg-gray-100"></span>
+</button>
+</div>
+<!-- Menú móvil -->
+<div class="md:hidden bg-white dark:bg-gray-800" x-show="navOpen">
+<nav class="flex flex-col space-y-2 p-4">
+<a class="py-1 hover:text-red-700 dark:hover:text-blue-400" href="#about">Nosotros</a>
+<a class="py-1 hover:text-red-700 dark:hover:text-blue-400" href="#features">Características</a>
+<a class="py-1 hover:text-red-700 dark:hover:text-blue-400" href="#gallery">Galería</a>
+<a class="py-1 hover:text-red-700 dark:hover:text-blue-400" href="#contact">Contacto</a>
+<button @click="dark = !dark" class="py-1 text-left hover:text-red-700 dark:hover:text-blue-400">
+<template x-if="!dark">Activar Dark Mode</template>
+<template x-if="dark">Desactivar Dark Mode</template>
+</button>
+</nav>
+</div>
+</header>
+<main class="pt-16">
+<!-- HERO -->
+<section class="relative h-screen bg-cover bg-center" style="background-image:url('img/hero.png')">
+<div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black/30"></div>
+<div class="relative z-10 container mx-auto h-full flex flex-col items-center justify-center text-center px-4">
+<h1 class="text-4xl md:text-6xl font-bold text-white mb-4" data-aos="fade-down">
           Soluciones Móviles y Prefabricadas
         </h1>
-        <p class="text-lg md:text-2xl text-white/90 mb-8" data-aos="fade-up">
+<p class="text-lg md:text-2xl text-white/90 mb-8" data-aos="fade-up">
           Unidades Smart Cube totalmente configurables para tus proyectos
         </p>
-        <a href="#contact" class="px-6 py-3 bg-red-700 hover:bg-red-800 text-white rounded-lg" data-aos="zoom-in">
+<a class="px-6 py-3 bg-red-700 hover:bg-red-800 text-white rounded-lg" data-aos="zoom-in" href="#contact">
           Solicita tu cotización
         </a>
-      </div>
-    </section>
-
-    <!-- NOSOTROS -->
-    <section id="about" class="py-20 bg-gray-50 dark:bg-gray-800">
-      <div class="container mx-auto grid md:grid-cols-2 gap-8 items-center px-4">
-        <div data-aos="fade-right">
-          <h2 class="text-3xl font-bold text-red-700 mb-4">Quiénes Somos</h2>
-          <p class="text-gray-700 dark:text-gray-300">
+</div>
+</section>
+<!-- NOSOTROS -->
+<section class="py-20 bg-gray-50 dark:bg-gray-800" id="about">
+<div class="container mx-auto grid md:grid-cols-2 gap-8 items-center px-4">
+<div data-aos="fade-right">
+<h2 class="text-3xl font-bold text-red-700 mb-4">Quiénes Somos</h2>
+<p class="text-gray-700 dark:text-gray-300">
             En Orviv Solutions ofrecemos unidades móviles Smart Cube y módulos prefabricados con la mejor calidad en acero, paneles y acabados, diseñados para maximizar espacios y brindar soluciones rápidas y eficientes.
           </p>
-        </div>
-        <div data-aos="fade-left">
-          <img src="img/img1.png" alt="Interior Smart Cube" class="rounded-lg shadow-lg">
-        </div>
-      </div>
-    </section>
-
-    <!-- CARACTERÍSTICAS -->
-    <section id="features" class="py-20">
-      <div class="container mx-auto text-center mb-12" data-aos="fade-up">
-        <h2 class="text-3xl font-bold text-red-700">Características</h2>
-      </div>
-      <div class="container mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
-        <!-- Card 1 -->
-        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow hover:shadow-xl transform hover:-translate-y-1 transition" data-aos="zoom-in">
-          <!-- Icono SVG -->
-          <svg class="w-12 h-12 text-red-700 mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path d="M3 12l2-2 4 4 8-8 4 4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <h3 class="text-xl font-semibold mb-2">Estructura de Acero</h3>
-          <p>Construidas con PTR y paneles de alta resistencia.</p>
-        </div>
-        <!-- Card 2 -->
-        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow hover:shadow-xl transform hover:-translate-y-1 transition" data-aos="zoom-in" data-aos-delay="100">
-          <svg class="w-12 h-12 text-red-700 mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path d="M4 7h16M4 12h16M4 17h16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <h3 class="text-xl font-semibold mb-2">Opciones de Acabado</h3>
-          <p>Elige entre Cempanel, tablaroca, lámina Pintro o MDF laminado.</p>
-        </div>
-        <!-- Card 3 -->
-        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow hover:shadow-xl transform hover:-translate-y-1 transition" data-aos="zoom-in" data-aos-delay="200">
-          <svg class="w-12 h-12 text-red-700 mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path d="M3 3l18 18M21 3L3 21" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <h3 class="text-xl font-semibold mb-2">Transporte Fácil</h3>
-          <p>Unidades totalmente recuperables y fáciles de transportar.</p>
-        </div>
-        <!-- Card 4 -->
-        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow hover:shadow-xl transform hover:-translate-y-1 transition" data-aos="zoom-in" data-aos-delay="300">
-          <svg class="w-12 h-12 text-red-700 mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path d="M12 6v6l4 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <h3 class="text-xl font-semibold mb-2">Instalaciones Completas</h3>
-          <p>Climatización, iluminación LED y acometida eléctrica incluídas.</p>
-        </div>
-      </div>
-    </section>
-
-    
-<!-- SERVICIOS -->
-<section id="services" class="py-20 bg-white dark:bg-gray-900">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-red-700 text-center mb-12">Servicios</h2>
-    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow">
-        <h3 class="text-xl font-bold text-red-700 mb-2">SC 2528</h3>
-        <ul class="list-disc ml-4 text-sm text-gray-700 dark:text-gray-300">
-          <li>Barra de trabajo</li><li>WC con lavabo (no incluye holding)</li><li>A/A ventana o mini split solo frío</li>
-          <li>2 contactos dobles 110V</li><li>Puerta de acceso</li>
-        </ul>
-      </div>
-      <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow">
-        <h3 class="text-xl font-bold text-red-700 mb-2">SC 2556 OFWWC</h3>
-        <ul class="list-disc ml-4 text-sm text-gray-700 dark:text-gray-300">
-          <li>2 barras de trabajo</li><li>WC con lavabo (no incluye holding)</li><li>A/A ventana solo frío</li>
-          <li>2 contactos dobles 110V</li><li>Puerta de acceso</li>
-        </ul>
-      </div>
-      <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow">
-        <h3 class="text-xl font-bold text-red-700 mb-2">SC 2556 DORWWC</h3>
-        <ul class="list-disc ml-4 text-sm text-gray-700 dark:text-gray-300">
-          <li>1 división dormitorio</li><li>WC con lavabo y regadera</li><li>A/A ventana solo frío</li>
-          <li>3 contactos dobles 110V</li><li>Puerta de acceso y cocineta con tarja</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+</div>
+<div data-aos="fade-left">
+<img alt="Interior Smart Cube" class="rounded-lg shadow-lg" src="img/img1.png"/>
+</div>
+</div>
 </section>
-
-
+<!-- CARACTERÍSTICAS -->
+<section class="py-20" id="features">
+<div class="container mx-auto text-center mb-12" data-aos="fade-up">
+<h2 class="text-3xl font-bold text-red-700">Características</h2>
+</div>
+<div class="container mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
+<!-- Card 1 -->
+<div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow hover:shadow-xl transform hover:-translate-y-1 transition" data-aos="zoom-in">
+<!-- Icono SVG -->
+<svg class="w-12 h-12 text-red-700 mb-4 mx-auto" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 21h18M6 21V5a1 1 0 0 1 1-1h3m7 17V5a1 1 0 0 0-1-1h-3m0 0V3m0 1v16" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<h3 class="text-xl font-semibold mb-2">Estructura de Acero</h3>
+<p>Construidas con PTR y paneles de alta resistencia.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow hover:shadow-xl transform hover:-translate-y-1 transition" data-aos="zoom-in" data-aos-delay="100">
+<svg class="w-12 h-12 text-red-700 mb-4 mx-auto" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 3h10a1 1 0 011 1v16l-6-3-6 3V4a1 1 0 011-1z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<h3 class="text-xl font-semibold mb-2">Opciones de Acabado</h3>
+<p>Elige entre Cempanel, tablaroca, lámina Pintro o MDF laminado.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow hover:shadow-xl transform hover:-translate-y-1 transition" data-aos="zoom-in" data-aos-delay="200">
+<svg class="w-12 h-12 text-red-700 mb-4 mx-auto" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zm10 0a2 2 0 11-4 0 2 2 0 014 0zM3 5h13v13H3zM16 8h5v5h-5z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<h3 class="text-xl font-semibold mb-2">Transporte Fácil</h3>
+<p>Unidades totalmente recuperables y fáciles de transportar.</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow hover:shadow-xl transform hover:-translate-y-1 transition" data-aos="zoom-in" data-aos-delay="300">
+<svg class="w-12 h-12 text-red-700 mb-4 mx-auto" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<h3 class="text-xl font-semibold mb-2">Instalaciones Completas</h3>
+<p>Climatización, iluminación LED y acometida eléctrica incluídas.</p>
+</div>
+</div>
+</section>
+<!-- SERVICIOS -->
+<section class="py-20 bg-white dark:bg-gray-900" id="services">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl font-bold text-red-700 text-center mb-12">Servicios</h2>
+<div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow">
+<h3 class="text-xl font-bold text-red-700 mb-2">SC 2528</h3>
+<ul class="list-disc ml-4 text-sm text-gray-700 dark:text-gray-300">
+<li>Barra de trabajo</li><li>WC con lavabo (no incluye holding)</li><li>A/A ventana o mini split solo frío</li>
+<li>2 contactos dobles 110V</li><li>Puerta de acceso</li>
+</ul>
+</div>
+<div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow">
+<h3 class="text-xl font-bold text-red-700 mb-2">SC 2556 OFWWC</h3>
+<ul class="list-disc ml-4 text-sm text-gray-700 dark:text-gray-300">
+<li>2 barras de trabajo</li><li>WC con lavabo (no incluye holding)</li><li>A/A ventana solo frío</li>
+<li>2 contactos dobles 110V</li><li>Puerta de acceso</li>
+</ul>
+</div>
+<div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow">
+<h3 class="text-xl font-bold text-red-700 mb-2">SC 2556 DORWWC</h3>
+<ul class="list-disc ml-4 text-sm text-gray-700 dark:text-gray-300">
+<li>1 división dormitorio</li><li>WC con lavabo y regadera</li><li>A/A ventana solo frío</li>
+<li>3 contactos dobles 110V</li><li>Puerta de acceso y cocineta con tarja</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
 <!-- GALERÍA -->
-    <section id="gallery" class="py-20 bg-gray-50 dark:bg-gray-800">
-      <div class="container mx-auto text-center mb-12" data-aos="fade-up">
-        <h2 class="text-3xl font-bold text-red-700">Galería</h2>
-      </div>
-      <div class="container mx-auto columns-1 sm:columns-2 lg:columns-4 gap-4 px-4">
-        <a href="img/img1.png"><img src="img/img1.png" alt="Interior" loading="lazy" class="mb-4 rounded-lg shadow-lg"></a>
-        <a href="img/img2.png"><img src="img/img2.png" alt="Exterior" loading="lazy" class="mb-4 rounded-lg shadow-lg"></a>
-        <a href="img/img3.png"><img src="img/img3.png" alt="Prefabricado" loading="lazy" class="mb-4 rounded-lg shadow-lg"></a>
-        <a href="img/img4.png"><img src="img/img4.png" alt="Instalaciones" loading="lazy" class="mb-4 rounded-lg shadow-lg"></a>
-      </div>
-    </section>
-
-    <!-- CONTACTO -->
-    <section id="contact" class="py-20">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-red-700 text-center mb-8" data-aos="fade-up">Contacto</h2>
-        
-<form action="https://formspree.io/f/your-form-id" method=" method="POST" class="max-w-lg mx-auto space-y-4" data-aos="fade-up" data-aos-delay="100">
-          <label class="block">
-            <span class="text-gray-700 dark:text-gray-300">Nombre</span>
-            <input name="name" type="text" required class="mt-1 block w-full rounded-md border-gray-300 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50"/>
-          </label>
-          <label class="block">
-            <span class="text-gray-700 dark:text-gray-300">Correo Electrónico</span>
-            <input name="email" type="email" required class="mt-1 block w-full rounded-md border-gray-300 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50"/>
-          </label>
-          <label class="block">
-            <span class="text-gray-700 dark:text-gray-300">Teléfono</span>
-            <input name="phone" type="tel" class="mt-1 block w-full rounded-md border-gray-300 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50"/>
-          </label>
-          <label class="block">
-            <span class="text-gray-700 dark:text-gray-300">Mensaje</span>
-            <textarea name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50"></textarea>
-          </label>
-          <button type="submit" class="w-full py-3 bg-red-700 hover:bg-red-800 text-white rounded-lg">
+<section class="py-20 bg-gray-50 dark:bg-gray-800" id="gallery">
+<div class="container mx-auto text-center mb-12" data-aos="fade-up">
+<h2 class="text-3xl font-bold text-red-700">Galería</h2>
+</div>
+<div class="container mx-auto columns-1 sm:columns-2 lg:columns-4 gap-4 px-4">
+<a href="img/img1.png"><img alt="Interior" class="mb-4 rounded-lg shadow-lg" loading="lazy" src="img/img1.png"/></a>
+<a href="img/img2.png"><img alt="Exterior" class="mb-4 rounded-lg shadow-lg" loading="lazy" src="img/img2.png"/></a>
+<a href="img/img3.png"><img alt="Prefabricado" class="mb-4 rounded-lg shadow-lg" loading="lazy" src="img/img3.png"/></a>
+<a href="img/img4.png"><img alt="Instalaciones" class="mb-4 rounded-lg shadow-lg" loading="lazy" src="img/img4.png"/></a>
+</div>
+</section>
+<!-- CONTACTO -->
+<section class="py-20" id="contact">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl font-bold text-red-700 text-center mb-8" data-aos="fade-up">Contacto</h2>
+<form action="https://formspree.io/f/your-form-id" class="max-w-lg mx-auto space-y-4" data-aos="fade-up" data-aos-delay="100" method=" method=" post"="">
+<label class="block">
+<span class="text-gray-700 dark:text-gray-300">Nombre</span>
+<input class="mt-1 block w-full rounded-md border-gray-300 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50" name="name" required="" type="text"/>
+</label>
+<label class="block">
+<span class="text-gray-700 dark:text-gray-300">Correo Electrónico</span>
+<input class="mt-1 block w-full rounded-md border-gray-300 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50" name="email" required="" type="email"/>
+</label>
+<label class="block">
+<span class="text-gray-700 dark:text-gray-300">Teléfono</span>
+<input class="mt-1 block w-full rounded-md border-gray-300 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50" name="phone" type="tel"/>
+</label>
+<label class="block">
+<span class="text-gray-700 dark:text-gray-300">Mensaje</span>
+<textarea class="mt-1 block w-full rounded-md border-gray-300 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50" name="message" rows="4"></textarea>
+</label>
+<button class="w-full py-3 bg-red-700 hover:bg-red-800 text-white rounded-lg" type="submit">
             Enviar Mensaje
           </button>
-        </form>
-<div class='text-center text-gray-700 dark:text-gray-300 mt-4'><p><strong>Ubicaciones:</strong> Cancún | Mérida | Villahermosa</p></div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="py-6 bg-gray-200 dark:bg-gray-800 text-center">
-    <p>© 2025 Orviv Solutions. Todos los derechos reservados.</p>
-  </footer>
-
-  <script>
+</form>
+<div class="text-center text-gray-700 dark:text-gray-300 mt-4"><p><strong>Ubicaciones:</strong> Cancún | Mérida | Villahermosa</p></div>
+</div>
+</section>
+</main>
+<!-- FOOTER -->
+<footer class="py-6 bg-gray-200 dark:bg-gray-800 text-center">
+<p>© 2025 Orviv Solutions. Todos los derechos reservados.</p>
+</footer>
+<script>
     // Inicializar AOS
     AOS.init({ once: true, duration: 800 });
     // Inicializar SimpleLightbox
